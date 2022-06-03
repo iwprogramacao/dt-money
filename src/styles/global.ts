@@ -54,17 +54,38 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
-
   /* Tudo o que tiver desabilitado */
   [disabled] {
     opacity: 0.6;
     cursor: not-allowed;
   }
 
+  /* --------------- Modal --------------- */
 
+  .react-modal-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    
+    position: fixed;    /* Quando tiver em scroll, aparece por cima sem se mover */
+    // Setup para ocupar tudo:
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    // Só top e bottom: ocupa de cima a baixo somente o tamanho do conteúdo do form;
 
+    // Centralizar o conteúdo na tela
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-
-
-`
+  .react-modal-content {
+    width: 100%;
+    max-width: 576px;
+    background: var(--background);
+    padding: 3rem;    // 48px Desktop
+    position: relative;   /* Para definir itens em position absolute dentro desse mesmo conteúdo e não absolute da tela inteira (botão fechar Modal) */
+    border-radius: 0.25rem;
+  }
+`;
 
